@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fujicookbook.grovehouse.xyz/sitemap.xml
