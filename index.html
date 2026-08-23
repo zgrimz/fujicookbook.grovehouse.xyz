@@ -9,7 +9,7 @@
      relative ones are ignored by crawlers and social scrapers. -->
 
 <title>Fuji Cookbook — Free Fujifilm recipe manager</title>
-<meta name="description" content="A free app to manage your Fujifilm recipes, group them into chapters, push directly to your camera, and more. Fuji Cookbook is in development.">
+<meta name="description" content="A free digital cookbook for your Fujifilm camera. Import recipes from anywhere, test them on your own RAW files, and push favourites straight to your camera. No ads, no account, no upsell.">
 <link rel="canonical" href="https://fujicookbook.grovehouse.xyz/">
 
 <meta name="author" content="Grove House Studio LLC">
@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://fujicookbook.grovehouse.xyz/">
 <meta property="og:title" content="Fuji Cookbook — Free Fujifilm recipe manager">
-<meta property="og:description" content="Manage your Fujifilm recipes, group them into chapters, push directly to your camera, and more. All for free. Coming soon.">
+<meta property="og:description" content="Import recipes from anywhere, test them on your own RAW files, and push favourites straight to your camera. All for free — no ads, no account, no upsell. Coming soon.">
 <meta property="og:image" content="https://fujicookbook.grovehouse.xyz/img/og.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -33,7 +33,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fuji Cookbook — Free Fujifilm recipe manager">
-<meta name="twitter:description" content="Manage your Fujifilm recipes, group them into chapters, push directly to your camera, and more. All for free. Coming soon.">
+<meta name="twitter:description" content="Import recipes from anywhere, test them on your own RAW files, and push favourites straight to your camera. All for free — no ads, no account, no upsell. Coming soon.">
 <meta name="twitter:image" content="https://fujicookbook.grovehouse.xyz/img/og.png">
 <meta name="twitter:image:alt" content="Three iPhone screens showing the Fuji Cookbook recipe list, recipe detail, and chapters.">
 
@@ -152,7 +152,7 @@ a:hover{color:var(--gold);}
 }
 
 /* ---------- Hero ---------- */
-.hero{padding:120px 0 84px;max-width:760px;}
+.hero{padding:120px 0 84px;max-width:800px;}
 .hero h1{
   font-family:var(--font-serif);
   font-size:clamp(2.375rem, 5.4vw, 4.5rem);
@@ -163,7 +163,7 @@ a:hover{color:var(--gold);}
 .hero .lede{
   margin-top:32px;
   font-size:clamp(1.0625rem, 1.1vw + .85rem, 1.3125rem);
-  line-height:1.55;color:var(--text-2);max-width:560px;
+  line-height:1.55;color:var(--text-2);max-width:600px;
   text-wrap:pretty;
 }
 /* Lifts "All for free." out of the muted lede without turning it into a
@@ -202,6 +202,88 @@ a:hover{color:var(--gold);}
   color:var(--text-3);text-align:center;text-wrap:balance;
 }
 
+/* ---------- Sections (shared) ---------- */
+.section{
+  padding:80px 0;
+  border-top:1px solid var(--hairline-soft);
+}
+.section-head{max-width:680px;}
+.section-head h2{
+  font-family:var(--font-serif);
+  font-size:clamp(1.75rem, 1.1vw + 1.4rem, 2.5rem);
+  font-weight:600;letter-spacing:-.02em;
+  color:var(--text-display);
+  text-wrap:balance;
+}
+.section-head p{
+  margin-top:16px;
+  font-size:clamp(1rem, .3vw + .95rem, 1.125rem);
+  line-height:1.6;color:var(--text-2);max-width:640px;
+  text-wrap:pretty;
+}
+.section-body{margin-top:40px;}
+
+/* ---------- Free strip ----------
+   A receipt line, not a feature card: a de-ranked label instead of a
+   full heading, and a border-chevron tick instead of a checkmark badge. */
+.strip{padding:80px 0;border-top:1px solid var(--hairline-soft);}
+.strip-title{
+  font-size:13px;font-weight:600;line-height:1;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--text-3);
+  margin:0 0 28px;
+}
+.unlocked{
+  list-style:none;margin:0;padding:0;
+  display:grid;gap:14px 32px;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  max-width:860px;
+}
+.unlocked li{
+  position:relative;padding-left:30px;
+  font-size:16px;line-height:1.45;color:var(--text-1);
+}
+.unlocked li::before{
+  content:"";position:absolute;left:2px;top:.42em;width:11px;height:6px;
+  border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(-45deg);
+}
+
+.prose{max-width:680px;}
+.prose p{font-size:16px;line-height:1.7;color:var(--text-2);}
+.prose p + p{margin-top:16px;}
+.prose + .prose{margin-top:16px;}
+
+/* Left-border promise list ("Free, you say?")
+   These three reasons build on each other (no account -> local storage ->
+   the one place a key is needed), so a stacked column with an accent
+   rule reads as one argument instead of three parallel, interchangeable
+   tiles the way a card grid would. */
+.promises{
+  list-style:none;margin-bottom:0;padding:0;
+  display:grid;gap:28px;max-width:750px;
+}
+.promises li{padding-left:20px;border-left:2px solid var(--accent);}
+.promises h3{
+  font-family:var(--font-serif);font-size:18px;font-weight:600;
+  letter-spacing:-.01em;color:var(--text-display);
+}
+.promises p{margin-top:8px;font-size:15px;line-height:1.6;color:var(--text-3);}
+
+.support-note{
+  margin-top:28px;font-size:15px;line-height:1.6;color:var(--text-3);
+}
+
+/* ---------- Closer ---------- */
+.closer{padding:88px 0 56px;border-top:1px solid var(--hairline-soft);}
+.closer h2{
+  font-family:var(--font-serif);
+  font-size:clamp(1.75rem, 1.6vw + 1.3rem, 2.75rem);
+  font-weight:600;letter-spacing:-.02em;color:var(--text-display);
+  text-wrap:balance;
+}
+.closer p{margin-top:14px;font-size:17px;line-height:1.6;color:var(--text-2);max-width:560px;}
+.closer .cta-row{margin-top:36px;}
+
 /* ---------- Footer ---------- */
 .colophon{
   border-top:1px solid var(--hairline-soft);
@@ -210,6 +292,10 @@ a:hover{color:var(--gold);}
 }
 /* Small print recedes by size and weight, not by dropping below the
    4.5:1 contrast floor — --text-4 still measures 4.8:1 on --bg. */
+.colophon .heart{
+  color:var(--accent);
+  font-size:1.05em;
+}
 .colophon .legal{
   display:block;
   margin-top:16px;
@@ -236,12 +322,20 @@ a:hover{color:var(--gold);}
   :root{--gutter:20px;}
   .masthead{padding-top:26px;}
   .hero{padding:64px 0 52px;}
+  /* At this width the headline wraps to 3 lines instead of 2, and the
+     .94 line-height tuned for a 2-line display headline crowds the
+     ascenders/descenders on line 3. Loosen it just for the wrap. */
+  .hero h1{line-height:1.08;}
   .hero .lede{margin-top:24px;}
   .cta-row{margin-top:36px;gap:14px;}
   .btn{width:100%;}
   .screens{gap:44px;padding-bottom:72px;}
   .screen{width:min(300px,100%);}
   .page{padding-bottom:64px;}
+  .section,.strip{padding:56px 0;}
+  .section-body{margin-top:28px;}
+  .strip-title{margin-bottom:20px;}
+  .closer{padding:64px 0 40px;}
 }
 @media (max-width:400px){
   .masthead{gap:12px;}
@@ -320,14 +414,14 @@ a:hover{color:var(--gold);}
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <h1 id="hero-title">A digital cookbook for your Fujifilm camera</h1>
-        <p class="lede">Manage your recipes, group them into chapters, push them straight to the camera, and more. <strong>All for free.</strong></p>
+        <p class="lede">Import recipes from anywhere, manage and search your library, test recipes on your own RAW files, and push your favourites straight to your camera. <strong>All for free.</strong> No ads, no account, no upsell.</p>
 
         <div class="cta-row">
           <!-- Opens in a new tab so the visitor keeps this page behind the
                form. To use the same tab instead, drop target and rel and
                remove the hidden "(opens in a new tab)" span. -->
           <a class="btn" href="https://forms.gle/DALqp61982LvZpta7"
-             target="_blank" rel="noopener">Sign up for updates<span class="vh"> (opens in a new tab)</span></a>
+             target="_blank" rel="noopener">Email me at launch<span class="vh"> (opens in a new tab)</span></a>
         </div>
       </section>
 
@@ -344,7 +438,7 @@ a:hover{color:var(--gold);}
                    srcset="img/recipes.png 580w, img/recipes@1.5x.png 870w"
                    sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px"
                    width="580" height="1257" loading="lazy" decoding="async"
-                   alt="Recipes list with a search field, film simulation filters, and recipe cards showing dynamic range, highlight, shadow, and white balance settings.">
+                   alt="Recipes list with a search field, filter chips for favorites and film simulations, and recipe cards showing each recipe's name, film simulation, and favorite status.">
             </picture>
           </div>
           <figcaption>Import your own recipes into a searchable library</figcaption>
@@ -382,10 +476,55 @@ a:hover{color:var(--gold);}
           <figcaption>Chapters for trips, moods, and favorites</figcaption>
         </figure>
       </section>
+
+      <section class="strip" aria-labelledby="free-title">
+        <h2 id="free-title" class="strip-title">Free means all of it</h2>
+        <ul class="unlocked">
+          <li>Import recipes from anywhere</li>
+          <li>Favourite, search, tag, and filter</li>
+          <li>Unlimited recipes and chapters</li>
+          <li>Push to your camera over USB</li>
+          <li>Test recipes and redevelop your RAWs</li>
+          <li>No ads, no account, no upsell</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="why-free-title">
+        <div class="section-head">
+          <h2 id="why-free-title">Free, you say? Yes, really.</h2>
+        </div>
+        <div class="section-body prose">
+          <p>I built this for myself, and I&rsquo;m happy to share it with the Fujifilm community.</p>
+          <p>It stays free because there&rsquo;s nothing to bill you for. There&rsquo;s no account, so your library lives on your phone rather than on my servers, which means I&rsquo;m not paying to store it. The one AI feature runs on your own key, so I&rsquo;m not paying for that either. No subscription, no locked features, no ads.</p>
+        </div>
+        <ul class="promises section-body">
+          <li>
+            <h3>Your recipes, on your phone.</h3>
+            <p>Stored locally in the app, no account required. Back them up to your own iCloud if you want. Nothing is sent to me and nothing is stored on my servers, apart from basic app analytics &mdash; and there&rsquo;s a switch to turn those off.</p>
+          </li>
+          <li>
+            <h3>One optional AI feature.</h3>
+            <p>Reading a recipe out of a screenshot needs a vision model, so it needs a key. Skip it and everything else in the app works exactly the same &mdash; you can always type a recipe in or import a file.</p>
+          </li>
+          <li>
+            <h3>Bring your own API key.</h3>
+            <p>Pick your provider and model, paste your key, and it stays on your device. You pay them directly. I don&rsquo;t take a markup, and I don&rsquo;t see your usage.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="closer" aria-labelledby="closer-title">
+        <h2 id="closer-title">Not out yet</h2>
+        <p>Close, though. Leave an email and I&rsquo;ll send one message when it&rsquo;s available.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://forms.gle/DALqp61982LvZpta7"
+             target="_blank" rel="noopener">Email me at launch<span class="vh"> (opens in a new tab)</span></a>
+        </div>
+      </section>
     </main>
 
     <footer class="colophon">
-      <p>&copy; 2026 Grove House Studio LLC</p>
+      <p>Made with <span class="heart" aria-hidden="true">&hearts;</span><span class="vh">love</span> in NYC by Zachary Grimshaw. &copy; 2026 Grove House Studio LLC</p>
       <!-- <small> is the spec's element for legal small print and caveats. -->
       <small class="legal">
         Fuji Cookbook is an independent project, not affiliated with, endorsed by, or sponsored by
