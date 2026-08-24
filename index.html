@@ -254,25 +254,14 @@ a:hover{color:var(--gold);}
   font-size:12px;font-weight:600;line-height:1;
   letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
 }
-.wide-shot{margin-top:48px;}
-.frame-wide{
-  border-radius:20px;overflow:hidden;
-  border:1px solid var(--hairline);
-  background:var(--bg-sunk);
-  box-shadow:0 40px 90px -40px rgba(0,0,0,.9);
-}
-/* Temporary. Swap for the real Test Kitchen screenshot once it's shot. */
-.shot-placeholder{
-  aspect-ratio:16/9;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  background:repeating-linear-gradient(45deg, rgba(244,239,228,.03) 0 12px, transparent 12px 24px);
-  color:var(--text-3);text-align:center;padding:24px;
-}
-.shot-placeholder span{font-size:15px;font-weight:600;color:var(--text-2);}
-.shot-placeholder small{font-size:13px;}
-.wide-shot figcaption{
-  margin-top:18px;font-size:14px;font-weight:500;line-height:1.5;
-  color:var(--text-3);text-align:center;text-wrap:balance;
+/* Three actual device screens (setup, tiled compare, A/B compare) reusing
+   the same .screen/.frame treatment as the top-of-page showcase, just
+   left-aligned to sit inside this section instead of centered as a
+   standalone display. */
+.kitchen-screens{
+  margin-top:48px;
+  display:flex;flex-wrap:wrap;
+  gap:28px;
 }
 
 .prose{max-width:680px;}
@@ -353,7 +342,7 @@ a:hover{color:var(--gold);}
 /* Keep the three screens on one row while they still fit, rather than
    wrapping into a lopsided 2 + 1. */
 @media (min-width:701px) and (max-width:960px){
-  .screens{gap:20px;flex-wrap:nowrap;}
+  .screens,.kitchen-screens{gap:20px;flex-wrap:nowrap;}
   .screen{width:calc((100% - 40px) / 3);}
   .screen .frame{border-radius:clamp(20px, 4vw, 38px);}
   .screen figcaption{margin-top:14px;font-size:13px;}
@@ -375,7 +364,7 @@ a:hover{color:var(--gold);}
   .section,.strip{padding:56px 0;}
   .section-body{margin-top:28px;}
   .strip-title{margin-bottom:20px;}
-  .wide-shot{margin-top:32px;}
+  .kitchen-screens{margin-top:32px;}
   .closer{padding:64px 0 40px;}
 }
 @media (max-width:400px){
@@ -540,15 +529,55 @@ a:hover{color:var(--gold);}
           <p class="pull-follow">Sample photos of recipes you find tell you how a recipe looked on their day, in their weather, pointed at their subject. They don&rsquo;t tell you how it handles yours.</p>
           <p>So try it first. Pick up to three of your own RAW files, run up to three recipes across them, and compare the grid. Your camera does the rendering over USB, so you&rsquo;re looking at exactly what it would have made.</p>
         </div>
-        <figure class="wide-shot">
-          <div class="frame-wide">
-            <div class="shot-placeholder" role="img" aria-label="Placeholder for the Test Kitchen comparison grid screenshot">
-              <span>Test Kitchen screenshot &mdash; coming soon</span>
-              <small>3 RAW files &times; 3 recipes, compared side by side</small>
+        <div class="kitchen-screens">
+          <figure class="screen">
+            <div class="frame">
+              <picture>
+                <source type="image/webp"
+                        srcset="img/kitchen-setup.webp 580w, img/kitchen-setup@1.5x.webp 870w"
+                        sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px">
+                <img src="img/kitchen-setup.png"
+                     srcset="img/kitchen-setup.png 580w, img/kitchen-setup@1.5x.png 870w"
+                     sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px"
+                     width="580" height="1257" loading="lazy" decoding="async"
+                     alt="Test Kitchen setup screen with three RAW files and three recipes selected, and a Develop 9 Versions button.">
+              </picture>
             </div>
-          </div>
-          <figcaption>Three RAW files. Three recipes. One screen.</figcaption>
-        </figure>
+            <figcaption>Pick your RAW files and recipes to compare</figcaption>
+          </figure>
+
+          <figure class="screen">
+            <div class="frame">
+              <picture>
+                <source type="image/webp"
+                        srcset="img/kitchen-tiled.webp 580w, img/kitchen-tiled@1.5x.webp 870w"
+                        sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px">
+                <img src="img/kitchen-tiled.png"
+                     srcset="img/kitchen-tiled.png 580w, img/kitchen-tiled@1.5x.png 870w"
+                     sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px"
+                     width="580" height="1257" loading="lazy" decoding="async"
+                     alt="Tiled comparison view showing the same photo rendered with three different recipes side by side.">
+              </picture>
+            </div>
+            <figcaption>See every version side by side</figcaption>
+          </figure>
+
+          <figure class="screen">
+            <div class="frame">
+              <picture>
+                <source type="image/webp"
+                        srcset="img/kitchen-ab.webp 580w, img/kitchen-ab@1.5x.webp 870w"
+                        sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px">
+                <img src="img/kitchen-ab.png"
+                     srcset="img/kitchen-ab.png 580w, img/kitchen-ab@1.5x.png 870w"
+                     sizes="(max-width:700px) min(300px, calc(100vw - 40px)), (max-width:960px) calc((100vw - 104px) / 3), 290px"
+                     width="580" height="1257" loading="lazy" decoding="async"
+                     alt="A/B comparison view with a slider to compare two recipes on the same photo.">
+              </picture>
+            </div>
+            <figcaption>Or slide between any two, A/B style</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="why-free-title">
